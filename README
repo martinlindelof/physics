@@ -1,0 +1,83 @@
+i) Utvecklingsmiljö.
+Ställ in så att "tab space" inte består av tab-tecken utan blanksteg och det ska
+vara två till antalet inte fyra. Aktivera indikation på 80 tecken högermarginal.
+
+
+i) Definitioner.
+Defineras i VERSALER utan blanksteg mellan orden, istället används understreck
+och har ett avslutande extra understreck. Tillägg kan läggas på skriva i gemener.
+  a) Kod ex:
+  SNUS_H_
+  SNUS_DOSA_portion_stark
+
+
+ii) Konstanter.
+Konstanter skrivs endast i VERSALER, var blanksteg ersätts med understreck.
+  a) Konvention: SCREAMING_SNAKE_CASE, MACRO_CASE, CONSTANT_CASE
+
+iii) Klasser (& Struct/Unioner i C)
+För klassdefinitioner används PascalCase, som alltid inleds med en versal och vid
+nästa ord/namn används också en versal.
+  a) Konvention: PascalCase, UpperCamelCase, StudlyCase
+  b) Kod ex:
+  typedef struct
+  SvensktSnus {
+    char* namn;
+    float vikt;
+    int styrka;
+  }
+  SvSnus;
+
+iv) Variabler.
+Enklare variabler skrivs endast i gemener, för mer komplexa variabler används
+camelCase som alltid inleds med gemener och inledande storbokstav i varje ord som
+skall separeras.
+  a) Konvention: (gemen) camelCase, dromedaryCase
+  b) Kod ex:
+  int antalSnusDosor = 1;
+  str snusText = "beroendeframkallande";
+  SvSnus dosa;
+
+v) Pekare.
+Pekaren placeras intill datatypen, men det är inte ett måste. Notera att i C++
+kan det vara avgörande i vissa fall var man placerar pekaren. En bra praxis är att
+markera variabler som är pekare med inledande bokstaven p eller förkortningen ptr.
+  a) Kod ex:
+  char* rubrik;
+  str* titel = &rubrik;
+  size_t* pStorlek;
+
+vi) Funktioner.
+Funktioner skall endast skrivas ut i gemener, var understreck ersätter blanksteg.
+Det är så alla program i unix/linux miljöer ser ut, och även de flesta inbyggda
+funktionerna i standard biblioteken till C/C++ är utformade. Men främsta anledningen
+är att koden blir extremt mycket mer lättläst för metodsanrop blandas inte ihop
+med variabelnamn. Vid implementationen av en funktion lägg retur typ på en egen
+rad och inled en ny rad med funktionsnamnet i första kolumn.
+  a) Kod ex:
+  void start_snusa(int x); // deklarationen av en funktion
+  void
+  start_snusa(int x)
+  {
+    // implementation
+  }
+
+vii) Sammanfattning.
+Ovanstående namnkonvention gör programkoden lättläst och man ser skillnaden
+enklare utifrån kodstrukturen i programmet. Samt undviker namnkonflikter i större
+arbetsgrupper some delar kod i en gemensam namnrymd. Detta är bevisat och det går
+att utöka förståelsen inom, speciellt om man läser dokumentationen från projekt som
+  a) GNU https://www.gnu.org/prep/standards/standards.html
+  b) KHRONOS https://registry.khronos.org/vulkan/specs/1.3/styleguide.html
+  c) GTK https://www.gtk.org/docs/
+
+viii) Ordlista och förklaringar.
+
+  a) Understreck, golvstreck eller markstreck är ett tecken som ibland används
+inom datorsammanhang istället för ordmellanrum, särskilt om ordmellanrum av någon
+anledning inte tillåts, exempelvis i vissa typer av användarnamn.
+ex. ____
+
+  b) Namnrymd (engelska: namespace) är en omgivning eller kontext i vilken alla
+namn är unika, dvs inte innehåller några homonymer eller andra tvetydigheter.
+Ofta definieras och används olika namnrymder just för att särskilja homonymer. 
